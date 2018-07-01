@@ -4,4 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface TextbookRepository extends CrudRepository<Textbook, Long> {
 
+	Object findByTexbooksContains(Textbook textbook);
+
 }
