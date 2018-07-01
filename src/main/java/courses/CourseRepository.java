@@ -10,6 +10,6 @@ public interface CourseRepository extends CrudRepository<Course, Long> {
 	
 	Collection<Course> findByTopicsId(Long id);
 
-	Collection<Course> findByTexbooksContains(Textbook textbook);
+	Collection<Course> findByTextbooksContains(Textbook textbook);
 
 }

@@ -63,11 +63,11 @@ public class CourseController {
 		
 		if (textbook.isPresent()) {
 			model.addAttribute("textbook", textbook.get());
-			model.addAttribute("courses", courseRepo.findByTexbooksContains(textbook.get()));
+			model.addAttribute("courses", courseRepo.findByTextbooksContains(textbook.get()));
 			return "textbook";
 		}
 		throw new TextbookNotFoundException();
-		
+
 	}
 
 	@RequestMapping("/show-textbooks")
