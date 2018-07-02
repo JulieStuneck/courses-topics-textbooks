@@ -100,7 +100,7 @@ public class CourseControllerTest {
 		
 		underTest.findOneTextbook(arbitraryTextbookId, model);
 		
-		verify(model).addAttribute("textbook", textbook);
+		verify(model).addAttribute("textbooks", textbook);
 	}
 	
 	@Test

@@ -62,7 +62,7 @@ public class CourseController {
 		Optional<Textbook> textbook = textbookRepo.findById(id);
 		
 		if (textbook.isPresent()) {
-			model.addAttribute("textbook", textbook.get());
+			model.addAttribute("textbooks", textbook.get());
 			model.addAttribute("courses", courseRepo.findByTextbooksContains(textbook.get()));
 			return "textbook";
 		}
@@ -73,7 +73,7 @@ public class CourseController {
 	@RequestMapping("/show-textbooks")
 	public String findAllTextbooks(Model model) {
 		model.addAttribute("textbooks", textbookRepo.findAll());
-		return ("textbooks");
+		return ("textbook");
 	}
 
 }

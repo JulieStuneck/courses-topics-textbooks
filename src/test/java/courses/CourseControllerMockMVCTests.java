@@ -158,19 +158,19 @@ public class CourseControllerMockMVCTests {
 	
 	@Test
 	public void shouldNotBeOkForSingleTextbook() throws Exception {
-		mvc.perform(get("/texbook?id=1")).andExpect(status().isNotFound());
+		mvc.perform(get("/textbook?id=1")).andExpect(status().isNotFound());
 	}
 	
 	@Test
 	public void shouldPutSingleTextbookIntoModel() throws Exception {
 		when(textbookRepo.findById(1L)).thenReturn(Optional.of(textbook));
 		
-		mvc.perform(get("/textbook?id=1")).andExpect(model().attribute("textbook", is(textbook)));
+		mvc.perform(get("/textbook?id=1")).andExpect(model().attribute("textbooks", is(textbook)));
 	}
 	
 	@Test
 	public void shouldRouteToAllTextbooksToView() throws Exception {
-		mvc.perform(get("/show-textbooks?id=1")).andExpect(view().name(is("textbooks")));
+		mvc.perform(get("/show-textbooks?id=1")).andExpect(view().name(is("textbook")));
 	}
 	
 	@Test
@@ -178,12 +178,14 @@ public class CourseControllerMockMVCTests {
 		mvc.perform(get("/show-textbooks")).andExpect(status().isOk());
 	}
 	
-	@Test
+	@Test 
 	public void shouldPutAllTextbooksIntoModel() throws Exception {
 		Collection<Textbook> allTextbooks = Arrays.asList(textbook, anotherTextbook);
 		when(textbookRepo.findAll()).thenReturn(allTextbooks);
 		
 		mvc.perform(get("/show-textbooks")).andExpect(model().attribute("textbooks", is(allTextbooks)));
 	}
+	
+	
 
 }

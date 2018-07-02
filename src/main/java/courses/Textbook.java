@@ -1,5 +1,7 @@
 package courses;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,6 +19,15 @@ public class Textbook {
 	@ManyToOne
 	private Course course;
 	
+	public long getId() {
+		return id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+		
 	public Textbook() {
 		
 	}
