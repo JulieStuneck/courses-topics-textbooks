@@ -11,7 +11,7 @@
 	
 	<div th:each="course: ${courses}">
 		<h2>
-			<a th:href="@{/course(id=${course.id})}" th:text="${course.courseName}"></a>
+			<a th:href="@{/course(id=${course.id})}" th:text="${course.name}"></a>
 		</h2>
 	</div>
 
