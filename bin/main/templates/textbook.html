@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>A textbook</title>
+</head>
+
+<body>
+
+	<header>
+		<h1> A Single Textbook </h1>
+	</header>
+
+	<div th:each="textbook: ${textbooks}">
+		<h2 th:text="${textbook.name}"></h2>
+		<a href="http://localhost:8080/show-textbooks">Back to home</a>
+	</div>
+	
+	textbook
+
+	
+</body>
+</html>
