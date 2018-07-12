@@ -23,6 +23,7 @@ public class CourseControllerTest {
 
 	@Mock
 	private Course course;
+	Long courseId;
 
 	@Mock
 	private Course anotherCourse;
@@ -111,4 +112,34 @@ public class CourseControllerTest {
 		underTest.findAllTextbooks(model);
 		verify(model).addAttribute("textbooks", allTextbooks);
 	}
+	
+	@Test	//User input will create new course
+	public void shouldAddAdditionalCoursesToModel() {
+		//Create an arbitrary new course for the test (naming needs to match Course Object)
+		String topicName = "topic name";
+		//Need to check to see if new topic exists already
+		Topic newTopic = topicRepo.findByName(topicName);
+		String courseName = "new course";
+		String courseDescription = "new course description";
+		//underTest is calling the controller that was injected at the top of the page and called underTest
+		underTest.addCourse(courseName, courseDescription, topicName);
+		//create the newCourse object
+		Course newCourse = new Course(courseName, courseDescription, newTopic);
+		when(courseRepo.save(newCourse)).thenReturn(newCourse);
+	}
+	
+	@Test	
+	public void shouldRemoveCourseFromModelByName() {
+		String courseName = course.getName();
+		when(courseRepo.findByName(courseName)).thenReturn(course); //referencing the Mocked course, above
+		underTest.deleteCourseByName(courseName);
+		verify(courseRepo).delete(course);
+	}
+	
+	@Test
+	public void shouldRemoveCourseFromModelById() {
+		underTest.deleteCourseById(courseId);
+		verify(courseRepo.deleteById(courseId);
+	}
+	
 }
