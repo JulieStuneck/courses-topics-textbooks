@@ -156,7 +156,7 @@ public class JPAMappingsTest {
 		entityManager.flush(); 
 		entityManager.clear();
 		
-		Collection<Course> sortedCourses = courseRepo.findAllByOrderByNameAscending();
+		Collection<Course> sortedCourses = courseRepo.findAllByOrderByNameAsc();
 		assertThat(sortedCourses, contains(ooLanguages, scriptingLanguages));
 		
 	}

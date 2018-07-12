@@ -139,7 +139,7 @@ public class CourseControllerTest {
 	@Test
 	public void shouldRemoveCourseFromModelById() {
 		underTest.deleteCourseById(courseId);
-		verify(courseRepo.deleteById(courseId);
+		verify(courseRepo).deleteById(courseId);
 	}
 	
 }

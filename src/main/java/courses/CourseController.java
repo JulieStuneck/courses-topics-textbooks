@@ -126,7 +126,7 @@ public class CourseController {
 	
 	@RequestMapping("/sort-courses")
 	public String sortCourses(Model model) {
-		model.addAttribute("courses", courseRepo.findAllByOrderByNameAscending());
+		model.addAttribute("courses", courseRepo.findAllByOrderByNameAsc());
 		
 		return "courses";
 	}
