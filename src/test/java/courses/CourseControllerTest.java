@@ -142,4 +142,21 @@ public class CourseControllerTest {
 		verify(courseRepo).deleteById(courseId);
 	}
 	
+	@Test	
+	public void shouldAddAdditionalTextbooksToModel() {
+		//Create an arbitrary new course for the test (naming needs to match Course Object)
+		String textbookName = "textbook name";
+		//Need to check to see if new textbook exists already
+		Textbook newTextbook = textbookRepo.findByName(textbookName);
+		String courseName = "course name";
+		String courseDescription = "new description";
+//		String topic = "new course topic";
+		Course courseForNewTextbook = new Course(courseName, courseDescription);
+		//underTest is calling the controller that was injected at the top of the page and called underTest
+		underTest.addTextbook(textbookName, courseForNewTextbook);
+		//create the newTextbook object
+		newTextbook = new Textbook(textbookName, course);
+		when(textbookRepo.save(newTextbook)).thenReturn(newTextbook);
+	}
+	
 }

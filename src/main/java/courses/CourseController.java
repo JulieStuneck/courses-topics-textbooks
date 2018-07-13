@@ -91,8 +91,7 @@ public class CourseController {
 		}
 		//in html forms, need to refresh the page to show user's input
 		//make sure there are no spaces between""
-		return "redirect:/show-courses";
-		
+		return "redirect:/show-courses";		
 	}
 	
 	@RequestMapping("/delete-course")
@@ -112,10 +111,8 @@ public class CourseController {
 		courseRepo.deleteById(courseId);
 		
 		return "redirect:/show-courses";
-		
 	}
-	
-	
+		
 	@RequestMapping("/find-by-topic")
 	public String findCourseByTopic(String topicName, Model model) {
 		Topic topic = topicRepo.findByName(topicName);
@@ -130,7 +127,17 @@ public class CourseController {
 		
 		return "courses";
 	}
+
+	@RequestMapping("/add-textbook")
+	public String addTextbook(String textbookName, Course courseName) {		
+		Textbook newTextbook = textbookRepo.findByName(textbookName);
+		
+		if(newTextbook == null) {
+			newTextbook = new Textbook(textbookName, courseName);
+		}
+		return "redirect:/show-textbooks";
+	}
 	
-	
+
 
 }

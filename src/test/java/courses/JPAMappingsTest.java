@@ -98,7 +98,7 @@ public class JPAMappingsTest {
 		
 		Course ooLanguages = courseRepo.save(new Course("OO Languages", "Description", java));
 		Course advancedJava = courseRepo.save(new Course("Adv Java", "Description", java));
-		Course advancedJava2 = courseRepo.save(new Course("Adv Java", "Description"));
+//		Course advancedJava2 = courseRepo.save(new Course("Adv Java", "Description"));
 				
 		entityManager.flush(); 
 		entityManager.clear();
@@ -126,7 +126,7 @@ public class JPAMappingsTest {
 	}
 	
 	@Test
-	public void shouldEstablishTextBookToCourseRelationship() {
+	public void shouldEstablishTextbookToCourseRelationship() {
 		Course course = new Course("name", "description");
 		courseRepo.save(course);
 		long courseId = course.getId();
