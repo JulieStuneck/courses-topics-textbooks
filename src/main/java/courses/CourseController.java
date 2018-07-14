@@ -129,13 +129,15 @@ public class CourseController {
 	}
 
 	@RequestMapping("/add-textbook")
-	public String addTextbook(String textbookName, Course courseName) {		
+	public String addTextbook(String textbookName, Course courseForNewTextbook) {		
 		Textbook newTextbook = textbookRepo.findByName(textbookName);
+		//Course courseForNewTextbook = new Course(courseName, "courseDescription");
 		
 		if(newTextbook == null) {
-			newTextbook = new Textbook(textbookName, courseName);
+			newTextbook = new Textbook(textbookName, courseForNewTextbook);
+			textbookRepo.save(newTextbook);
 		}
-		return "redirect:/show-textbooks";
+		return "redirect:/show-courses";
 	}
 	
 

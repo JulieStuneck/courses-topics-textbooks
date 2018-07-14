@@ -113,7 +113,7 @@ public class CourseControllerTest {
 		verify(model).addAttribute("textbooks", allTextbooks);
 	}
 	
-	@Test	//User input will create new course
+	@Test	//User input will create new course - drive controller method for user to add courses
 	public void shouldAddAdditionalCoursesToModel() {
 		//Create an arbitrary new course for the test (naming needs to match Course Object)
 		String topicName = "topic name";
@@ -144,17 +144,12 @@ public class CourseControllerTest {
 	
 	@Test	
 	public void shouldAddAdditionalTextbooksToModel() {
-		//Create an arbitrary new course for the test (naming needs to match Course Object)
-		String textbookName = "textbook name";
-		//Need to check to see if new textbook exists already
+		String textbookName = "new textbook";		
 		Textbook newTextbook = textbookRepo.findByName(textbookName);
 		String courseName = "course name";
-		String courseDescription = "new description";
-//		String topic = "new course topic";
-		Course courseForNewTextbook = new Course(courseName, courseDescription);
-		//underTest is calling the controller that was injected at the top of the page and called underTest
+		String courseDescription = "course description";
+		Course courseForNewTextbook = new Course(courseName, courseDescription, topic);
 		underTest.addTextbook(textbookName, courseForNewTextbook);
-		//create the newTextbook object
 		newTextbook = new Textbook(textbookName, course);
 		when(textbookRepo.save(newTextbook)).thenReturn(newTextbook);
 	}
