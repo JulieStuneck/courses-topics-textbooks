@@ -16,7 +16,5 @@ public interface CourseRepository extends CrudRepository<Course, Long> {
 
 	Collection<Course> findAllByOrderByNameAsc();
 
-	//Course save(Textbook newTextbook); //created from shouldAddAdditionalTextbooksToModel Test -don't think is correct
-	
 
 }

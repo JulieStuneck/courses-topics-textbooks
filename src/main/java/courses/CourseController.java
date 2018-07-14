@@ -128,17 +128,17 @@ public class CourseController {
 		return "redirect:/show-courses";
 	}
 
-//	@RequestMapping("/add-textbook")
-//	public String addTextbook(String textbookName, Course courseForNewTextbook) {		
-//		Textbook newTextbook = textbookRepo.findByName(textbookName);
-//		//Course courseForNewTextbook = new Course(courseName, "courseDescription");
-//		
-//		if(newTextbook == null) {
-//			newTextbook = new Textbook(textbookName, courseForNewTextbook);
-//			textbookRepo.save(newTextbook);
-//		}
-//		return "redirect:/show-courses";
-//	}
+	@RequestMapping("/add-textbook")
+	public String addTextbook(String textbookTitle, Course courseForNewTextbook) {		
+		Textbook newTextbook = textbookRepo.findByTitle(textbookTitle);
+		//Course courseForNewTextbook = new Course(courseName, "courseDescription");
+		
+		if(newTextbook == null) {
+			newTextbook = new Textbook(textbookTitle, courseForNewTextbook);
+			textbookRepo.save(newTextbook);
+		}
+		return "redirect:/show-courses";
+	}
 	
 
 
