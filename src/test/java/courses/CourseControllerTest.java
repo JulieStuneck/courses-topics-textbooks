@@ -142,16 +142,16 @@ public class CourseControllerTest {
 		verify(courseRepo).deleteById(courseId);
 	}
 	
-	@Test	
-	public void shouldAddAdditionalTextbooksToModel() {
-		String textbookName = "new textbook";		
-		Textbook newTextbook = textbookRepo.findByName(textbookName);
-		String courseName = "course name";
-		String courseDescription = "course description";
-		Course courseForNewTextbook = new Course(courseName, courseDescription, topic);
-		underTest.addTextbook(textbookName, courseForNewTextbook);
-		newTextbook = new Textbook(textbookName, course);
-		when(textbookRepo.save(newTextbook)).thenReturn(newTextbook);
-	}
-	
+//	@Test	
+//	public void shouldAddAdditionalTextbooksToModel() {
+//		String textbookName = "new textbook";		
+//		Textbook newTextbook = textbookRepo.findByName(textbookName);
+//		String courseName = "course name";
+//		String courseDescription = "course description";
+//		Course courseForNewTextbook = new Course(courseName, courseDescription, topic);
+//		underTest.addTextbook(textbookName, courseForNewTextbook);
+//		newTextbook = new Textbook(textbookName, course);
+//		when(textbookRepo.save(newTextbook)).thenReturn(newTextbook);
+//	}
+//	
 }

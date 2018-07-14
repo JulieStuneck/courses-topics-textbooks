@@ -125,20 +125,20 @@ public class CourseController {
 	public String sortCourses(Model model) {
 		model.addAttribute("courses", courseRepo.findAllByOrderByNameAsc());
 		
-		return "courses";
-	}
-
-	@RequestMapping("/add-textbook")
-	public String addTextbook(String textbookName, Course courseForNewTextbook) {		
-		Textbook newTextbook = textbookRepo.findByName(textbookName);
-		//Course courseForNewTextbook = new Course(courseName, "courseDescription");
-		
-		if(newTextbook == null) {
-			newTextbook = new Textbook(textbookName, courseForNewTextbook);
-			textbookRepo.save(newTextbook);
-		}
 		return "redirect:/show-courses";
 	}
+
+//	@RequestMapping("/add-textbook")
+//	public String addTextbook(String textbookName, Course courseForNewTextbook) {		
+//		Textbook newTextbook = textbookRepo.findByName(textbookName);
+//		//Course courseForNewTextbook = new Course(courseName, "courseDescription");
+//		
+//		if(newTextbook == null) {
+//			newTextbook = new Textbook(textbookName, courseForNewTextbook);
+//			textbookRepo.save(newTextbook);
+//		}
+//		return "redirect:/show-courses";
+//	}
 	
 
 

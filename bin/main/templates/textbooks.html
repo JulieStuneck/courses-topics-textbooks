@@ -15,7 +15,7 @@
 	<div th:each="textbook: ${textbooks}">
 		<h2>
 			<a th:href="@{/textbook(id=${textbook.id})}" th:text="${textbook.title}"></a>
-		</h2>textbook
+		</h2>
 	</div>
 
 </body>
