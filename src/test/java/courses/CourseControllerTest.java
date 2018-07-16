@@ -148,9 +148,9 @@ public class CourseControllerTest {
 		Textbook newTextbook = textbookRepo.findByTitle(textbookTitle);
 		String courseName = "course name";
 		String courseDescription = "course description";
-		Course courseForNewTextbook = new Course(courseName, courseDescription, topic);
+		Course courseForNewTextbook = new Course(courseName, courseDescription);
 		underTest.addTextbook(textbookTitle, courseForNewTextbook);
-		newTextbook = new Textbook(textbookTitle, course);
+		newTextbook = new Textbook(textbookTitle, courseForNewTextbook);
 		when(textbookRepo.save(newTextbook)).thenReturn(newTextbook);
 	}
 //	

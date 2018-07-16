@@ -170,7 +170,7 @@ public class CourseControllerMockMVCTests {
 	
 	@Test
 	public void shouldRouteToAllTextbooksToView() throws Exception {
-		mvc.perform(get("/show-textbooks?id=1")).andExpect(view().name(is("textbook")));
+		mvc.perform(get("/show-textbooks?id=1")).andExpect(view().name(is("textbooks")));
 	}
 	
 	@Test

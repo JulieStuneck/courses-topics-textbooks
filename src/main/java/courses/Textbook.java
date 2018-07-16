@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Textbook {
 	
@@ -14,6 +16,7 @@ public class Textbook {
 
 	private String title;
 	
+	@JsonIgnore
 	@ManyToOne
 	private Course course;
 	
@@ -25,7 +28,6 @@ public class Textbook {
 		return title;
 	}
 
-		
 	public Textbook() {
 		
 	}

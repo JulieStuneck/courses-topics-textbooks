@@ -14,8 +14,11 @@
 
 	<div th:each="textbook: ${textbooks}">
 		<h2 th:text="${textbook.title}"></h2>
-		<a href="http://localhost:8080/show-courses">Back to home</a>
+			<a th:href="@{/textbook(id=${textbook.id})}" th:text="${textbook.title}"></a>
 	</div>
+	
+	<a href="http://localhost:8080/show-textbooks">Back to Textbook List</a>
+	
 	
 	
 </body>

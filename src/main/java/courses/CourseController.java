@@ -73,7 +73,7 @@ public class CourseController {
 	@RequestMapping("/show-textbooks")
 	public String findAllTextbooks(Model model) {
 		model.addAttribute("textbooks", textbookRepo.findAll());
-		return ("textbook");
+		return ("textbooks");
 	}
 
 	//will need to make sure user entered data stays on the entry page (not to another page or end point, like above)
@@ -82,6 +82,10 @@ public class CourseController {
 	public String addCourse(String courseName, String courseDescription, String topicName) {
 		//Create the topic
 		Topic topic = topicRepo.findByName(topicName);
+		if(topic == null) {
+			topic = new Topic(topicName);
+			topicRepo.save(topic);
+		}
 		//make sure the course being added is new (not already in repo)
 		Course newCourse = courseRepo.findByName(courseName);
 		
@@ -129,16 +133,17 @@ public class CourseController {
 	}
 
 	@RequestMapping("/add-textbook")
-	public String addTextbook(String textbookTitle, Course courseForNewTextbook) {		
+	public String addTextbook(String textbookTitle, Course textbookCourse) {		
 		Textbook newTextbook = textbookRepo.findByTitle(textbookTitle);
-		//Course courseForNewTextbook = new Course(courseName, "courseDescription");
-		
+
 		if(newTextbook == null) {
-			newTextbook = new Textbook(textbookTitle, courseForNewTextbook);
+			newTextbook = new Textbook(textbookTitle, textbookCourse);
 			textbookRepo.save(newTextbook);
 		}
-		return "redirect:/show-courses";
+		return "/show-textbooks";
 	}
+	
+
 	
 
 
