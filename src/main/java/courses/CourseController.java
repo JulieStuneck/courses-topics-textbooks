@@ -132,15 +132,25 @@ public class CourseController {
 		return "redirect:/show-courses";
 	}
 
-	@RequestMapping("/add-textbook")
-	public String addTextbook(String textbookTitle, Course textbookCourse) {		
+	@RequestMapping("/add-textbook")//Strings - user typed input
+	public String addTextbook(String textbookTitle, String courseName) {		
 		Textbook newTextbook = textbookRepo.findByTitle(textbookTitle);
+		Course course = courseRepo.findByName(courseName);
 
 		if(newTextbook == null) {
-			newTextbook = new Textbook(textbookTitle, textbookCourse);
+			newTextbook = new Textbook(textbookTitle, course);
 			textbookRepo.save(newTextbook);
 		}
-		return "/show-textbooks";
+		
+		course.addTextbook(newTextbook);
+		courseRepo.save(course);
+		
+		return "redirect:/show-courses";
+	}
+	
+	@RequestMapping("/")
+	public String home() {
+		return "index.html";
 	}
 	
 

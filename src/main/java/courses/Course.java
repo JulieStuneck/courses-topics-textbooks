@@ -92,6 +92,10 @@ public class Course {
 			return false;
 		return true;
 	}
+	
+	public void addTextbook(Textbook newBook) {
+		textbooks.add(newBook);
+	}
 
 
 }
