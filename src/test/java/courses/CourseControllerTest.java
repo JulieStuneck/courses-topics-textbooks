@@ -149,7 +149,7 @@ public class CourseControllerTest {
 		String courseName = "course name";
 		String courseDescription = "course description";
 		Course courseForNewTextbook = new Course(courseName, courseDescription);
-		underTest.addTextbook(textbookTitle, courseForNewTextbook);
+		underTest.addTextbook(textbookTitle, courseName);
 		newTextbook = new Textbook(textbookTitle, courseForNewTextbook);
 		when(textbookRepo.save(newTextbook)).thenReturn(newTextbook);
 	}
