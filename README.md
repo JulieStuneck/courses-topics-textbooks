@@ -1,1 +1,1 @@
-Users can make a course and add topic tags and textbooks to it.
+Users can create thier own courses, then assign topic tags and textbooks to them.
