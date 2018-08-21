@@ -1,5 +1,8 @@
 *{
-	background-color: #eee;
+	background-color: #ddd;
+	background-position: center; 
+  	background-repeat: no-repeat;
+  	background-size: cover; 
 	box-sizing: border-box;
 	Line-height: 1.618em;
 	margin: 1.5em;
@@ -23,6 +26,8 @@
 	max-width: 1250px;	
 }
 
+
+
 button {
 	border-radius: 25px;
 }
@@ -39,6 +44,14 @@ h2 {
 	font-size:1.5rem;	
 }
 
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	color: #aaa;
+}
+
 
 header, footer {
 	display: flex;
@@ -47,14 +60,16 @@ header, footer {
 	opacity: 0.9;
 }
 
+//Home Page Styling
+
 .current-list {	
-	opacity: 0.9;
-	align-items: center;
+	opacity: 0.9;	
+	width: max-content;
 }
 
 .create-course {	
-	opacity: 0.9;
-	}
+	opacity: 0.9;	
+}
 	
 .delete-course {
 	opacity: 0.9
@@ -69,5 +84,24 @@ header, footer {
 }
 
 .textbook {
+	opacity: 0.9;	
+} 
+
+//Course Page Styling
+
+.single-course-page { 
+	font-family: 'Raleway', sans-serif;
+}
+
+.back {
+	display:flex;
+	grid-column: 2;
+	align-content: center;	
+	opacity: 0.9;	
+	padding: .5rem;
+	width: max-content;
+}
+.course-description {
+	grid-column: 1/-1;
 	opacity: 0.9;	
 }
