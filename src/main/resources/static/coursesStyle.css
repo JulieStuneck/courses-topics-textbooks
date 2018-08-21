@@ -3,8 +3,9 @@
 	box-sizing: border-box;
 	Line-height: 1.618em;
 	margin: 1.5em;
-	padding: 1em, 1em;	
-	justify-content: center;	
+	padding: 1em, 1em;
+	justify-content: center;		
+
 }
 
 .grid-container {	
@@ -15,30 +16,58 @@
   	background-repeat: no-repeat;
   	background-size: cover; 
 	display: grid;
+	font-family: 'Raleway', sans-serif;
 	grid-gap: 20px;
 	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));	
-	max-width: 1250px;
+	justify-content: center;	
+	max-width: 1250px;	
+}
+
+button {
+	border-radius: 25px;
 }
 
 div {	
-	background-color: #999;
 	padding: .25em;
 }
 
+h1 {
+	font-size: 2.75rem;
+}
 
-header {
+h2 {
+	font-size:1.5rem;	
+}
+
+
+header, footer {
+	display: flex;
 	grid-column: 1/-1;
-	background-color: #3399ff;
+	justify-content: center;
+	opacity: 0.9;
 }
 
-.current-list {
-	background-color: #ccc;
-	
-
+.current-list {	
+	opacity: 0.9;
+	align-items: center;
 }
 
-.create-delete-course {
-	
-
+.create-course {	
+	opacity: 0.9;
 	}
- 
+	
+.delete-course {
+	opacity: 0.9
+}
+
+.search{
+	opacity: 0.9;	
+}
+
+.sort {
+	opacity: 0.9;	
+}
+
+.textbook {
+	opacity: 0.9;	
+}

@@ -5,16 +5,19 @@
 <head>
 <title>A list of courses</title>
 <link rel="stylesheet" type="text/css" href="/coursesStyle.css">
+<link
+	href="https://fonts.googleapis.com/css?family=Raleway"
+	rel="stylesheet">
 </head>
 
 <body>
 	<div class="grid-container">
 		<header>
-			<h1>Tower City College</h1>
+			<h1>Tower City University</h1>
 		</header>
 
 		<section class="current-list">
-			<h2>Our Current Courses</h2>
+			<h2>Our Current Courses:</h2>
 			<div th:each="course: ${courses}">
 				<h3>
 					<a th:href="@{/course(id=${course.id})}" th:text="${course.name}"></a>
@@ -22,20 +25,8 @@
 			</div>
 		</section>
 
-		<section>
-			<form method="POST">
-				<div>
-					<label>Enter Course Name:</label> <input type="text"
-						name="courseName" />
-				</div>
-
-				<div>
-					<button th:formaction="@{delete-course}">delete course</button>
-				</div>
-			</form>
-		</section>
-
-		<section>
+		<section class="search">
+			<h2>Search for Courses:</h2>
 			<form method="GET">
 				<div>
 					<label>Enter Topic Name:</label> <input type="text"
@@ -48,15 +39,17 @@
 			</form>
 		</section>
 
-		<section>
+<!-- 		<section class="sort">
+			<h2>Sort Courses:</h2>
 			<form method="GET">
 				<div>
 					<button th:formaction="@{/sort-courses}">sort</button>
 				</div>
 			</form>
-		</section>
+		</section> -->
 
-		<section>
+		<section class="textbook">
+			<h2>Add Textbooks</h2>
 			<form method="POST">
 				<div>
 					<label>Enter Textbook Title:</label> <input type="text"
@@ -74,8 +67,8 @@
 			</form>
 		</section>
 
-		<section class="create-delete-course">
-			<h2>Create or Delete a Course</h2>
+		<section class="create-course">
+			<h2>Create Your Own Course</h2>
 			<form method="POST">
 				<div>
 					<label>Enter Course Name:</label> <input type="text"
@@ -97,7 +90,22 @@
 			</form>
 		</section>
 
-	</div>
-	<!-- grid-container -->
+		<section class="delete-course">
+			<h2>Delete a Course</h2>
+			<form method="POST">
+				<div>
+					<label>Enter Course Name:</label> <input type="text"
+						name="courseName" />
+				</div>
+
+				<div>
+					<button th:formaction="@{delete-course}">delete course</button>
+				</div>
+			</form>
+		</section>
+		
+		<footer>&copy;Julie Stuneck 2018</footer>
+
+	</div>	<!-- grid-container -->
 </body>
 </html>
