@@ -1,0 +1,44 @@
+*{
+	background-color: #eee;
+	box-sizing: border-box;
+	Line-height: 1.618em;
+	margin: 1.5em;
+	padding: 1em, 1em;	
+	justify-content: center;	
+}
+
+.grid-container {	
+	background-image: url("/images/tower.jpg");
+	height: 100%;
+	background-attachment: fixed;
+	background-position: center; 
+  	background-repeat: no-repeat;
+  	background-size: cover; 
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));	
+	max-width: 1250px;
+}
+
+div {	
+	background-color: #999;
+	padding: .25em;
+}
+
+
+header {
+	grid-column: 1/-1;
+	background-color: #3399ff;
+}
+
+.current-list {
+	background-color: #ccc;
+	
+
+}
+
+.create-delete-course {
+	
+
+	}
+ 
