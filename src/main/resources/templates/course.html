@@ -4,40 +4,48 @@
 
 <head>
 <title>A course</title>
+	<link rel="stylesheet" type="text/css" href="/coursesStyle.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 
-<body>
+<body>	
 
-	<header>
-		<h1> A Single Course </h1>
-	</header>
+	<div class="grid-container" th:each="course: ${courses}">
+		<header>
+			<h1 th:text="${course.name}"></h1>
+		</header>
+		
+		<section class="course-description">
+			<h2 th:text="${course.description}"></h2>
+		</section>
 
-	<div th:each="course: ${courses}">
-		<h2 th:text="${course.name}"></h2>
-		<h2 th:text="${course.description}"></h2>
-		
-		
-	<h3>Topics associated with this course</h3>
-	<div th:each="topic: ${course.topics}">
-		<ul>
-			<li th:text="${topic.name}"></li>
-		</ul>
-	</div>
-	
-	<h3>Textbooks associated with this course</h3>
-	<div th:each="textbook: ${course.textbooks}">
-		<ul>
-			<li th:text="${textbook.title}"></li>
-		</ul>
-	</div>
-	
-	
-	<form method = "POST">
-	<button type="submit" th:value="${course.id}" name="courseId" th:formaction="@{del-course}">delete</button>
-	</form>
-	
-	<a href="http://localhost:8080/show-courses">Back to home</a>	
-	</div>
+		<section>
+			<h3>Topics associated with this course</h3>
+				<div th:each="topic: ${course.topics}">
+					<ul>
+						<li th:text="${topic.name}"></li>
+					</ul>
+				</div>
+		</section>
+
+		<section>
+			<h3>Textbooks associated with this course</h3>
+				<div th:each="textbook: ${course.textbooks}">
+					<ul>
+						<li th:text="${textbook.title}"></li>
+					</ul>
+				</div>
+		</section>
+
+<!-- 		<section>
+			<form method="POST">
+				<button type="submit" th:value="${course.id}" name="courseId"
+				th:formaction="@{del-course}">delete</button>
+			</form>
+		</section> -->
+
+		<a class="back" href="http://localhost:8080/show-courses">Back to home</a>
+	</div><!-- grid-container -->
 
 </body>
 </html>
